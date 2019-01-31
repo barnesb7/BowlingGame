@@ -11,9 +11,11 @@ public class BowlingDemo {
 
         final String roll = "1";
         final String exitProgram = "2";
+        boolean shouldContinue = true;
 
         int frameCounter = 1;
         String userInput;
+
 
 
       do{
@@ -25,10 +27,11 @@ public class BowlingDemo {
 
           frameCounter++;
           } else if (userInput.equals(exitProgram)){
-
+              shouldContinue = false;
+              System.out.println("Thank you. Goodbye");
           }
 
-      }while(frameCounter <= 10);
+      }while(frameCounter <= 10 && shouldContinue);
 
 
     }
