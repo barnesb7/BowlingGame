@@ -10,6 +10,10 @@ public class FrameSet {
     public FrameSet(){
         this.frameSet = new ArrayList<Frame>();
 
+        for(int i = 0; i < 10; i++){
+            frameSet.add(new Frame());
+        }
+
     }
 
 }
