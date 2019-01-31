@@ -2,7 +2,7 @@ package com.company;
 
 public class Frame {
 
-    private int frameTotalScore;
+    private int frameTotalScore = 0;
     private int firstRollScore = 0;
     private int secondRollScore = 0;
     private String specialCharacter = "regularRoll";
@@ -34,10 +34,7 @@ public class Frame {
     }
 
     public void setFirstRollScore(int firstRollScore) {
-        System.out.println("First Roll before --> " + this.firstRollScore);
         this.firstRollScore = firstRollScore;
-        System.out.println("First Roll after --> " + this.firstRollScore);
-
     }
 
     public int getSecondRollScore() {
@@ -45,9 +42,7 @@ public class Frame {
     }
 
     public void setSecondRollScore(int secondRollScore) {
-        System.out.println("Second Roll before--> " + secondRollScore);
         this.secondRollScore = secondRollScore;
-        System.out.println("Second Roll after--> " + secondRollScore);
     }
 
     public void setSpecialCharacter(String character){

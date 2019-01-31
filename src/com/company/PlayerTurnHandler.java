@@ -54,6 +54,9 @@ public class PlayerTurnHandler {
                 inputIsInvalid = false;
             } else if (userInput.equals(seeMyScore)) {
 
+              int bowlersTotalScore =  bowler.bowlerFrameSet.getTotalScoreForAllFrames();
+
+                System.out.println("Your current score is " + bowlersTotalScore);
 
                 inputIsInvalid = false;
             } else {

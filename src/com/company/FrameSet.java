@@ -16,4 +16,14 @@ public class FrameSet {
 
     }
 
+    public int getTotalScoreForAllFrames(){
+
+        int sumOfAllFrameTotalScores = 0;
+
+        for (Frame frame : frameSet) {
+            sumOfAllFrameTotalScores += frame.getFrameTotalScore();
+        }
+        return sumOfAllFrameTotalScores;
+    }
+
 }
