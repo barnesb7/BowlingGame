@@ -8,6 +8,8 @@ public class BowlingDemo {
 
         Scanner scan = new Scanner(System.in);
         UserMenu userMenu = new UserMenu();
+        Bowler bowler = new Bowler();
+
 
         final String roll = "1";
         final String exitProgram = "2";
@@ -16,14 +18,12 @@ public class BowlingDemo {
         int frameCounter = 1;
         String userInput;
 
-
-
       do{
           userMenu.showMenu();
           userInput = scan.nextLine();
 
           if(userInput.equals(roll)){
-
+           // playerTurnHandler.takeTurn(bowler, frameCounter);
 
           frameCounter++;
           } else if (userInput.equals(exitProgram)){
@@ -32,7 +32,6 @@ public class BowlingDemo {
           }
 
       }while(frameCounter <= 10 && shouldContinue);
-
 
     }
 }
