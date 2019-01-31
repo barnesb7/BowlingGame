@@ -2,10 +2,10 @@ package com.company;
 
 public class Frame {
 
-    int totalScore;
-    int firstRollScore = 0;
-    int secondRollScore = 0;
-    String specialCharacters;
+    private int frameTotalScore;
+    private int firstRollScore = 0;
+    private int secondRollScore = 0;
+    private String specialCharacters;
 
 
     public void scoreFrame(){
@@ -15,12 +15,12 @@ public class Frame {
 //        } else if ()
     }
 
-    public int getTotalScore() {
-        return totalScore;
+    public int getFrameTotalScore() {
+        return frameTotalScore;
     }
 
-    public void setTotalScore(int totalScore) {
-        this.totalScore = totalScore;
+    public void setFrameTotalScore(int frameTotalScore) {
+        this.frameTotalScore = frameTotalScore;
     }
 
     public int getFirstRollScore() {

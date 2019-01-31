@@ -3,11 +3,11 @@ package com.company;
 public class Bowler {
 
     private int score;
-    FrameSet frameSet;
+    FrameSet bowlerFrameSet;
 
 
     public Bowler(){
-        this.frameSet = new FrameSet();
+        this.bowlerFrameSet = new FrameSet();
     }
 
 }
