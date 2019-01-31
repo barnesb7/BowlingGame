@@ -19,14 +19,18 @@ public class BowlingDemo {
         int frameCounter = 1;
         String userInput;
 
-      do{
-          userMenu.showMenu();
-          userInput = scan.nextLine();
+        userMenu.showMenu();
+        userInput = scan.nextLine();
+
+        do{
 
           if(userInput.equals(roll)){
-              playerTurnHandler.takeTurn(bowler, frameCounter);
 
-          frameCounter++;
+
+            int appropriateFrame = playerTurnHandler.takeTurn(bowler, frameCounter);
+
+            frameCounter = appropriateFrame;
+
           } else if (userInput.equals(exitProgram)){
               shouldContinue = false;
               System.out.println("Thank you. Goodbye");

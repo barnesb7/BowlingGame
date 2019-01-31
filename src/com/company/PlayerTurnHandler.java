@@ -5,18 +5,19 @@ import java.util.Scanner;
 
 public class PlayerTurnHandler {
 
-    Random random = new Random();
-    Scanner scan = new Scanner(System.in);
-    UserMenu userMenu = new UserMenu();
+    private Random random = new Random();
+    private Scanner scan = new Scanner(System.in);
+    private UserMenu userMenu = new UserMenu();
 
-    String rollBall = "1";
-    String seeMyScore = "2";
+    private String rollBall = "1";
+    private String seeMyScore = "2";
 
-    boolean inputIsInvalid = true;
+    private boolean inputIsInvalid = true;
+    private boolean showScoreWasCalled = false;
 
     String userInput;
 
-    public void takeTurn(Bowler bowler, int frameNumber) {
+    public int takeTurn(Bowler bowler, int frameNumber) {
 
         int indexForFrameSearch = frameNumber - 1;
 
@@ -28,6 +29,9 @@ public class PlayerTurnHandler {
 
 
             if (userInput.equals(rollBall)) {
+
+                showScoreWasCalled = false;
+
                 int pinsStruckFirstRoll = random.nextInt(11);
 
                 bowler.bowlerFrameSet.frameSet.get(indexForFrameSearch).setFirstRollScore(pinsStruckFirstRoll);
@@ -41,14 +45,14 @@ public class PlayerTurnHandler {
                 int frameScore = bowler.bowlerFrameSet.frameSet.get(indexForFrameSearch).getFrameTotalScore();
 
                 System.out.println("You rolled a " + pinsStruckFirstRoll + " and a " + pinsStruckSecondRoll
-                + " for a total of a(n) " + frameScore);
+                + " for a total of " + frameScore + "\n");
 
                 String frameSpecialCharacter = bowler.bowlerFrameSet.frameSet.get(indexForFrameSearch).getSpecialCharacter();
 
                 if(frameSpecialCharacter.equals("strike")){
-                    System.out.println("THAT'S A STRIKE! NICE ROLL!");
+                    System.out.println("THAT'S A STRIKE! NICE ROLL! \n");
                 } else if (frameSpecialCharacter.equals("spare")){
-                    System.out.println("THAT'S A SPARE! NICE ROLL!");
+                    System.out.println("THAT'S A SPARE! NICE ROLL! \n");
                 }
 
                 inputIsInvalid = false;
@@ -56,14 +60,28 @@ public class PlayerTurnHandler {
 
               int bowlersTotalScore =  bowler.bowlerFrameSet.getTotalScoreForAllFrames();
 
-                System.out.println("Your current score is " + bowlersTotalScore);
+                System.out.println("Your current score is " + bowlersTotalScore + '\n');
 
+                showScoreWasCalled = true;
                 inputIsInvalid = false;
             } else {
                 System.out.println("Please choose a valid option from the menu");
             }
 
         }while(inputIsInvalid);
+
+        return locateAppropriateFrame(frameNumber);
     }
+
+
+    private int locateAppropriateFrame(int frameNumber) {
+        if(showScoreWasCalled){
+            return frameNumber;
+        } else {
+            return frameNumber + 1;
+        }
+    }
+
+
 
 }
