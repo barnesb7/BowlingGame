@@ -8,6 +8,7 @@ public class BowlingDemo {
 
         Scanner scan = new Scanner(System.in);
         UserMenu userMenu = new UserMenu();
+        PlayerTurnHandler playerTurnHandler = new PlayerTurnHandler();
         Bowler bowler = new Bowler();
 
 
@@ -23,7 +24,7 @@ public class BowlingDemo {
           userInput = scan.nextLine();
 
           if(userInput.equals(roll)){
-           // playerTurnHandler.takeTurn(bowler, frameCounter);
+              playerTurnHandler.takeTurn(bowler, frameCounter);
 
           frameCounter++;
           } else if (userInput.equals(exitProgram)){

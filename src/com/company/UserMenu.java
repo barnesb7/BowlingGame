@@ -8,4 +8,10 @@ public class UserMenu {
     public void showMenu(){
         System.out.println(rollOption + " or " + exitOption);
     }
+
+    public void showTurnMenu(){
+
+        System.out.println("[1] ROLL  [2] See My Score");
+    }
+
 }
