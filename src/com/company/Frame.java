@@ -10,15 +10,16 @@ public class Frame {
 
     public void scoreFrame(){
 
-        if (firstRollScore == 10){
-            setFrameTotalScore(10);
-            setSpecialCharacter("strike");
-        } else if(firstRollScore + secondRollScore < 10){
-            setFrameTotalScore(firstRollScore + secondRollScore);
-        } else if (firstRollScore + secondRollScore == 10){
-            setFrameTotalScore(10);
-            setSpecialCharacter("spare");
-        }
+         if (firstRollScore == 10){
+             setFrameTotalScore(10);
+             setSpecialCharacter("strike");
+         } else if(firstRollScore + secondRollScore < 10){
+             setFrameTotalScore(firstRollScore + secondRollScore);
+         } else if (firstRollScore + secondRollScore == 10){
+             setFrameTotalScore(10);
+             setSpecialCharacter("spare");
+         }
+
     }
 
     public int getFrameTotalScore() {

@@ -38,5 +38,7 @@ public class BowlingDemo {
 
       }while(frameCounter <= 10 && shouldContinue);
 
+        System.out.println("Your total game score was: " +  bowler.bowlerFrameSet.getTotalScoreForAllFrames());
+        System.out.println("Good Game!!");
     }
 }

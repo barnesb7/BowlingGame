@@ -40,6 +40,29 @@ public class PlayerTurnHandler {
 
                 bowler.bowlerFrameSet.frameSet.get(indexForFrameSearch).setSecondRollScore(pinsStruckSecondRoll);
 
+                //check for spare or strike in last frame
+                String previousFrameSpecialCharacter = "regularRoll";
+                String twoFramesAgoSpecialCharacter = "regularRoll";
+
+                if(frameNumber > 1){
+                    previousFrameSpecialCharacter =  bowler.bowlerFrameSet.frameSet.get(indexForFrameSearch - 1).getSpecialCharacter();
+
+                    if(frameNumber > 2){
+                       twoFramesAgoSpecialCharacter = bowler.bowlerFrameSet.frameSet.get(indexForFrameSearch - 2).getSpecialCharacter();
+                   }
+
+                    if(previousFrameSpecialCharacter.equals("strike") && !bowler.bowlerFrameSet.frameSet.get(indexForFrameSearch).getSpecialCharacter().equals("strike")){
+                        bowler.bowlerFrameSet.adjustScoreOfFrameForStrikeInPreviousFrame(indexForFrameSearch);
+                    } else if (twoFramesAgoSpecialCharacter.equals("strike")){
+                        bowler.bowlerFrameSet.adjustScoreOfFrameForStrikeTwoFramesAgo(indexForFrameSearch, previousFrameSpecialCharacter);
+                    }
+
+                    if(previousFrameSpecialCharacter.equals("spare")){
+                        bowler.bowlerFrameSet.adjustScoreOfLastFrameForSpare(indexForFrameSearch);
+                    }
+
+                }
+                
                 bowler.bowlerFrameSet.frameSet.get(indexForFrameSearch).scoreFrame();
 
                 int frameScore = bowler.bowlerFrameSet.frameSet.get(indexForFrameSearch).getFrameTotalScore();
